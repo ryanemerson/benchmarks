@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration name="CommandLineConfig" packages="org.infinispan.util.logging.log4j">
+    <Properties>
+        <Property name="infinispan.module-suffix"></Property>
+        <Property name="infinispan.log.path">.</Property>
+        <Property name="infinispan.log.thread-filter"></Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%d{HH:mm:ss,SSS} %-5p (%t) [%c{1}] %m%n%throwable{10}"/>
+        </Console>
+        <File name="File" fileName="infinispan.log"
+              append="false">
+            <PatternLayout pattern="%d{HH:mm:ss,SSS} %-5p (%t:%x) [%c{1}] %m%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.hibernate" level="FINEST"/>
+        <Logger name="org.infinispan" level="FATAL"/>
+        <Root>
+            <!--<AppenderRef ref="STDOUT"/>-->
+            <!--<AppenderRef ref="File"/>-->
+        </Root>
+    </Loggers>
+</Configuration>
